@@ -13,13 +13,34 @@ const app = express();
 
 
 // Add CORS configuration
+// const corsOptions = {
+//   origin: 'https://feedback-form-frontend.vercel.app',
+//   methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+//   credentials: true, 
+// };
+
+// app.use(cors(corsOptions));
+
+
+
 const corsOptions = {
-  origin: 'https://feedback-form-frontend.vercel.app',
+  origin: (origin, callback) => {
+      const allowedOrigins = [
+          'http://localhost:3001',
+          'https://feedback-form-frontend.vercel.app',
+      ];
+      if (!origin || allowedOrigins.includes(origin)) {
+          callback(null, true); // Allow the origin
+      } else {
+          callback(new Error('Not allowed by CORS')); // Deny the origin
+      }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE'], 
   credentials: true, 
 };
 
 app.use(cors(corsOptions));
+
 
 
 // Database connection
