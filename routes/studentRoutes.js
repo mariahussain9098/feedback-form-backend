@@ -11,6 +11,8 @@ const router = express.Router();
 
 // Route to create a new student
 router.post('/signup', createStudent); // No need for 'protect' middleware for registration
+console.log("Signup route accessed");
+
 
 // Route to get the details of the authenticated student
 router.get('/:id', protect, getStudentById);

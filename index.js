@@ -113,19 +113,21 @@ app.use(cors({
     }
   },
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true,
+  credentials: false,
 }));
+
+// app.use(cors())
 
 app.use(express.json());
 
 dbConnect()
   .then(() => {
-    app.use('/api/auth', authRoutes);
-    app.use('/api/feedback', feedbackRoutes);
-    app.use('/api/students', studentRoutes);
-    app.use('/api/teachers', teacherRoutes);
-    app.use('/api/admin', adminRoutes);
-    app.use('/api/feedbackForm', feedbackFormRoutes);
+    app.use('/auth', authRoutes);
+    app.use('/feedback', feedbackRoutes);
+    app.use('/students', studentRoutes);
+    app.use('/teachers', teacherRoutes);
+    app.use('/admin', adminRoutes);
+    app.use('/feedbackForm', feedbackFormRoutes);
 
     const PORT = process.env.PORT || 3000;
     app.listen(PORT, () => {
@@ -142,6 +144,8 @@ app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ message: 'Something broke!', error: err.message });
 });
+
+
 
 // Default route
 app.get('/', (req, res) => {

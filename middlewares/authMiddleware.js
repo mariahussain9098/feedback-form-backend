@@ -18,21 +18,25 @@ exports.protect = asyncHandler(async (req, res, next) => {
       }
 
       if (!user) {
-        return res.status(401).json({ message: 'Not authorized, token failed' });
+        return res.status(401).json({ message: 'Not authorized, token failed.........' });
       }
 
       req.user = user;
       next();
     } catch (error) {
       console.error(error);
-      res.status(401).json({ message: 'Not authorized, token failed' });
+      res.status(401).json({ message: 'Not authorized, token failed )))))))))))))' });
     }
   }
 
-  if (!token) {
-    res.status(401).json({ message: 'Not authorized, no token' });
-  }
+  // if (!token) {
+  //   res.status(401).json({ message: 'you are not authorized ;;;;;;;;;;;;;;;' });
+  // }
 });
+
+
+
+
 
 exports.authorize = (...roles) => {
   return (req, res, next) => {
