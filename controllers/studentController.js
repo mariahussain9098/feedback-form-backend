@@ -2,6 +2,7 @@ const bcrypt = require('bcryptjs');
 const Student = require('../models/Student');
 
 const createStudent = async (req, res) => {
+  console.log('Received signup request:', req.body); // Log the incoming request
   const { firstName, lastName, email, password, confirmPassword, studentId, batch, course } = req.body;
   try {
     // Check if passwords match
