@@ -11,19 +11,16 @@ const feedbackFormRoutes = require('./routes/feedbackFormRoutes');
 
 const app = express();
 
-app.use(express.json());
-// const corsConfig = {
-//   origin : "*",
-//   credential: true,
-//   methods: ["GET", "POST", "PUT", "DELETE"],
-// }
-// app.options("", cors(corsConfig))
-// app.use(cors(corsConfig));
 
-app.use(cors({
-  // origin: 'https://mariahussain9098.github.io/Feedback-Form-Frontend/'
-  origin : 'http://localhost:3001/Feedback-Form-Frontend/'
-}));
+// Add CORS configuration
+const corsOptions = {
+  origin: 'https://feedback-form-frontend.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+  credentials: true, 
+};
+
+app.use(cors(corsOptions));
+
 
 // Database connection
 dbConnect()
