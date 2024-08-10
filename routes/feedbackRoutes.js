@@ -1,41 +1,13 @@
-// const express = require('express');
-// const { submitFeedback, getFeedbacks } = require('../controllers/feedbackController');
-// const { protect } = require('../middlewares/authMiddleware');
-// const router = express.Router();
-
-// router.post('/', protect, submitFeedback);
-// router.get('/', protect, getFeedbacks);
-
-// module.exports = router;
-
-
-
-
 const express = require('express');
-const { submitFeedback, getFeedbacks, getFeedbackByTeacher, getFeedbackByCourse, getFeedbackByBatch, getFeedbackAnalysis } = require('../controllers/feedbackController');
-const { protect } = require('../middlewares/authMiddleware');
-
 const router = express.Router();
+const feedbackController = require('../controllers/feedbackController');
 
-// Submit Feedback
-router.post('/', protect, submitFeedback);
+// Route for submitting feedback
+router.post('/feedback', feedbackController.submitFeedback);
 
-// Get All Feedbacks
-router.get('/', protect, getFeedbacks);
-
-// Get Feedback by Teacher
-router.get('/teacher/:teacher_id', protect, getFeedbackByTeacher);
-
-// Get Feedback by Course
-router.get('/course/:course_id', protect, getFeedbackByCourse);
-
-// Get Feedback by Batch
-router.get('/batch/:batch_id', protect, getFeedbackByBatch);
-
-// Get Feedback Analysis
-router.get('/analysis', protect, getFeedbackAnalysis);
+// Route for fetching all feedback
+router.get('/feedback', feedbackController.getAllFeedback); // Add this line
 
 module.exports = router;
-
 
 

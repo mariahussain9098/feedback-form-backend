@@ -1,37 +1,3 @@
-// const express = require('express');
-// const router = express.Router();
-// const { protect } = require('../middlewares/authMiddleware');
-// const {
-//   createFeedbackForm,
-//   getFeedbackForms,
-//   getFeedbackFormById,
-//   updateFeedbackForm,
-//   deleteFeedbackForm,
-//   publishFeedbackForm
-// } = require('../controllers/feedbackFormController');
-
-// // Routes with protection middleware
-// router.post('/', protect, createFeedbackForm);
-// router.get('/', protect, getFeedbackForms);
-// router.get('/:id', protect, getFeedbackFormById);
-// router.put('/:id', protect, updateFeedbackForm);
-// router.delete('/:id', protect, deleteFeedbackForm);
-// router.post('/:id/publish', protect, publishFeedbackForm);
-
-// module.exports = router;
-
-
-
-
-
-
-
-
-
-
-
-
-
 const express = require('express');
 const router = express.Router();
 const { protect } = require('../middlewares/authMiddleware');

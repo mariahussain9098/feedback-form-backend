@@ -1,25 +1,3 @@
-// const mongoose = require('mongoose');
-
-// const questionSchema = new mongoose.Schema({
-//   type: { type: String, required: true }, // e.g., 'rating', 'text', 'date', 'select'
-//   question: { type: String, required: true },
-//   options: [String], // For 'select' type questions
-// });
-
-// const feedbackFormSchema = new mongoose.Schema({
-//   title: { type: String, required: true },
-//   questions: [questionSchema],
-//   created_at: { type: Date, default: Date.now },
-// });
-
-// module.exports = mongoose.model('FeedbackForm', feedbackFormSchema);
-
-
-
-
-
-
-
 
 const mongoose = require('mongoose');
 
